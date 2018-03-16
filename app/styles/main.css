@@ -1,0 +1,279 @@
+.navbar{
+    margin: 0;
+    border-radius: 0;
+    min-height: 40px;
+    height: 40px;
+    border: 0px;
+    border-bottom: 3px solid #8bd3cc;
+
+    background: #3a3d46;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3a3d46, #7d808b);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3a3d46, #7d808b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.navbar > button{
+    line-height: 30px;
+    min-height: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar{
+    background-color: #3a3d46;
+    height: 100%;
+    max-width: 250px;
+    /*padding: 10px;*/
+    /*border-right: 2px solid #314755;*/
+}
+
+.sidebar ol li{
+    font-size: medium;
+}
+
+.sidebar .node-module{
+    color: #8bd3cc;
+    /*border-bottom: 1px solid white;*/
+    width: 100%;
+    height: 32px;
+    /*margin-top: 10px;*/
+}
+
+.sidebar .node-module:hover{
+    /*font-weight: bold;
+    font-size: medium;*/
+    background-color: white;
+    color: gray;
+    border-radius: 5px 0 0 5px;
+}
+
+.sidebar .node-module:focus{
+    outline: none;
+}
+
+.sidebar .node-module > ng-md-icon{
+    float: right;
+    margin-right: 0;
+}
+
+.sidebar .node-module > div > ng-md-icon{
+    padding-top: 5px;
+    margin-left: 10px;
+}
+
+.sidebar .node-module > span{
+    padding-top: 7px;
+    padding-left: 5px;
+}
+
+.sidebar .node-entity{
+    color: #a9a9a9;
+    /*border-bottom: 1px solid #a9a9a9;*/
+    width: 100%;
+    height: 32px;
+    /*margin-top: 5px;*/
+}
+
+.sidebar .node-entity:hover{
+    /*font-weight: bold;
+    font-size: medium;
+    */
+    background-color: white;
+    color: gray;
+    cursor: pointer;
+    border-radius: 5px 0 0 5px;
+}
+.sidebar .node-entity a:hover{
+    text-decoration: none;
+}
+
+.sidebar .node-entity a{
+    padding-top: 7px;
+    padding-left: 5px;
+}
+
+.sidebar .node-entity.selected{
+    background-color: white;
+    color: gray;
+    border-radius: 5px 0 0 5px;
+    border: 3px solid #8bd3cc;
+    border-right: 0px;
+}
+
+.sidebar .node-entity.selected a{
+    padding-top: 4px;
+}
+
+.sidebar .node-entity.selected > div > ng-md-icon{
+    padding-top: 2px;
+    margin-left: 10px;
+}
+
+.sidebar .node-entity span{
+    color: #a9a9a9;
+}
+
+.sidebar .node-entity > div > ng-md-icon{
+    padding-top: 5px;
+    margin-left: 10px;
+}
+
+
+#content{
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+}
+
+.grid{
+    margin: 10px;
+    width: 1000px;
+}
+
+.toolbar{
+    /*border-bottom: 3px solid #8bd3cc;*/
+    height: 40px;
+    max-height: 40px;
+
+    margin-left: 10px;
+    margin-bottom: -10px;
+}
+
+.md-button.md-small {
+  width: 20px;
+  height: 30px;
+  line-height: 20px;
+  min-height: 30px;
+  vertical-align: top;
+  padding: 0 0;
+  margin: 3px;
+  border: 1px solid #8bd3cc;
+  border-radius: 5px 5px 5px 5px;
+  background-color: #3a3d46;
+}
+
+.md-button.md-small > span{
+    text-transform: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #8bd3cc;
+}
+
+.md-button.md-med {
+  width: 120px;
+  height: 35px;
+  line-height: 20px;
+  min-height: 30px;
+  vertical-align: top;
+  padding: 0 0;
+  margin: 3px;
+  border: 1px solid #8bd3cc;
+  border-radius: 5px 5px 5px 5px;
+  background-color: #3a3d46;
+}
+
+.md-button.md-med > span{
+    text-transform: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #8bd3cc;
+}
+
+.md-button.md-zoom, .md-button.md-zoom-remove {
+  line-height: 20px;
+  min-height: 28px;
+  min-width: 28px;
+  vertical-align: top;
+  padding: 0 0;
+  margin: 3px;
+  border: 1px solid #8bd3cc;
+  border-radius: 5px 5px 5px 5px;
+  background-color: #3a3d46;
+  position: fixed;
+  margin-left: -56px;
+}
+
+.md-button.md-zoom-remove{
+    margin-left: -28px;
+}
+
+input[zoom-input] {
+    /*margin-right: -58px;*/
+}
+
+.md-button.pagination-button{
+    min-width: 30px;
+}
+
+.md-button.pagination-display{
+    min-width: 30px;
+}
+
+.children-tabs md-content{
+    background: white !important;
+    padding: 0px;
+    padding-top: 10px;
+}
+
+.children-tabs md-tabs-wrapper{
+    border: 0px !important;
+}
+
+.children-tabs md-tabs-canvas{
+    height: 30px !important;
+    border: 0px;
+    /*background: #3a3d46;*/
+}
+
+.children-tabs md-pagination-wrapper{
+    height: 30px !important;
+}
+
+.children-tabs .md-tab{
+    line-height: 0px !important;
+    color: black;
+    border: 1px solid #a9a9a9;
+    border-radius: 5px;
+    margin: 1px;
+}
+
+.children-tabs .md-tab.md-active{
+    color: black;
+    background: #8bd3cc;
+}
+
+.children-tabs md-pagination-wrapper md-ink-bar{
+    color: #8bd3cc;
+    background: #8bd3cc;
+    height: 0px;
+}
+
+.formContent{
+    margin: 20px;
+    overflow-y: hidden;
+}
+
+.formButtons{
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+}
+
+.concurrency-error{
+    color: red;
+    font-size: x-large;
+}
+
+.concurrency-old-value{
+    color: red;
+}
+
+md-input-container .md-input[disabled], [disabled] md-input-container .md-input{
+    color: black;
+}
