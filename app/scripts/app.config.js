@@ -20,13 +20,20 @@
             })
             .state('about', {
                 url: '/about',
-                templateUrl: '/scripts/components/about.html'
+                templateUrl: '/scripts/components/about.html',
+                pageTitle: 'About'
             })
-            .state('detail', {
+            .state('dogDetail', {
                 url: '/detail/:id',
-                templateUrl: '/scripts/components/detail.html',
-                controller: 'detailController',
+                templateUrl: '/scripts/components/dog/dogDetail.html',
+                controller: 'DogDetailController',
                 pageTitle: 'Dog\'s Details'
+            })
+            .state('dogNew', {
+                url: '/dog/new',
+                templateUrl: '/scripts/components/dog/dogEdit.html',
+                controller: 'DogNewController',
+                pageTitle: 'New Dog'
             })
             .state('login', {
                 url: '/login',

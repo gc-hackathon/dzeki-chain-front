@@ -6,7 +6,7 @@
             "ui.router", 'ui.grid', 'ui.grid.selection', 'ui.tree', 'ngMaterial', 'ngMdIcons', 'ngScrollbars',
             'ngMessages', 'toaster']
         )
-        .constant('REST_END_POINT', 'http://localhost:5000/api')
+        .constant('REST_END_POINT', 'http://localhost:3000/api')
         .controller('AppController', AppController);
 
     AppController.$inject = ['$scope', '$rootScope'];

@@ -1,7 +1,22 @@
 
+.dog-thumbnail-wrapper {
+    padding: 15px;
+}
 
-.c-image-padding {
-    padding: 35px;
+.dog-thumbnail {
+    transition: 0.4s all ease;
+    box-shadow: 0 0 6px #333;
+    border-radius: 6px;
+    outline: none;
+}
+
+.dog-thumbnail > .c-thumbnail__img {
+    border-radius: 6px 6px 0 0;
+}
+
+.dog-thumbnail:hover {
+    box-shadow: 0 0 20px #333;
+    transform: scale(1.08);
 }
 
 .c-image-border {
@@ -18,14 +33,14 @@
 }
 
 .c-bck-image {
- background : url("https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2017/12/dog_eating_chocolate.jpg?itok=2NBmt_8Y&fc=50,50") no-repeat center center local;
- background-size : cover;
- 
+    background: url("https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2017/12/dog_eating_chocolate.jpg?itok=2NBmt_8Y&fc=50,50") no-repeat center center local;
+    background-size: cover;
+
 }
 
 .c-bck-image1 {
- background : url("http://s4.mojalbum.com/nove-slike-foto_1944114_1969249_4344145.jpg") no-repeat center center local;
- background-size : cover;
+    background: url("http://s4.mojalbum.com/nove-slike-foto_1944114_1969249_4344145.jpg") no-repeat center center local;
+    background-size: cover;
 }
 
 /* BACKGROUND */
@@ -38,6 +53,7 @@
 .c-icon-padding {
     padding: 5px;
 }
+
 .clr-black {
     color: black;
 }
@@ -46,26 +62,22 @@
 .c-image__margin {
     margin-top: 50px;
     margin-left: 50px;
-    
+
 }
+
 .c-image__margin-right {
     margin-right: 50px;
-}
-/* HEADER */
-
-.header {
-    border-bottom: 1px solid #66ccff;
 }
 
 /* STYLE */
 .c-thumbnail {
-  font-size: 14px;
-  margin-left: 0;
-  margin-right: 0;
+    font-size: 14px;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .c-thumbnail__img {
-height: 22em;
-width: 100%;
-overflow: hidden;
+    height: 12em;
+    width: 100%;
+    overflow: hidden;
 }

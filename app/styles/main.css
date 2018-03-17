@@ -1,24 +1,65 @@
+@font-face {
+    font-family: 'Porkys Regular';
+    src: url('fonts/porkys.regular.ttf') format('truetype');
+}
+
 body {
-    background-color: #f6f5de;
+    /*background-color: #f6f5de;*/
+    background-color: rgba(237, 242, 243, 0.76);
+    min-height: 100%;
+}
+
+body::after {
+    content: "";
+    background: url('../images/background.jpg') repeat center;
+    background-attachment: fixed;
+    position: absolute;
+    opacity: 0.8;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    min-height:100%;
+    z-index: -1;
 }
 
 md-content {
-    background-color: #f6f5de;
+    background-color: transparent;
 }
 
 .header {
-    height: 200px;
-    background-color: #e4efff;
+    height: 140px;
+    background-color: #f6f5de;
+    box-shadow: 0 4px 2px -2px gray;
 }
 
 .header .md-nav-bar {
+    background-color: #333333;
+    color: #fefefe;
+}
 
+.header .md-nav-bar li a span {
+    color: #fefefe;
+}
+
+.header .logo-holder {
+    height: 100%;
+}
+
+.header .logo-title {
+    position: absolute;
+    left: 230px;
+    top: 30px;
+    font-family: 'Porkys Regular';
+    font-size: 36px;
 }
 
 .header h1 {
-    line-height: 124px;
+    margin: 0;
+    line-height: 92px;
     text-align: center;
     font-size: 28px;
+    text-shadow: 0 0 2px gray;
 }
 
 .header-logo {
@@ -27,13 +68,21 @@ md-content {
 }
 
 .header-image {
-    height: 124px;
+    transition: 0.4s all ease;
+    height: 200px;
     float: left;
     position: absolute;
+    top: 0;
+    z-index: 2
+}
+
+.header-image:hover {
+    top: -8px;
+    height: 216px;
 }
 
 .page-content {
-    padding: 20px 40px;
+    padding: 40px 80px;
 }
 
 .login-form {

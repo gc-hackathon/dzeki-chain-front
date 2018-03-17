@@ -5,8 +5,6 @@
             md-selected-nav-item="currentNavItem"
             nav-bar-aria-label="navigation links">
 
-        <img src="images/icons/dog-paw.svg" class="header-logo"/>
-
         <md-truncate flex></md-truncate>
 
         <md-nav-item md-nav-sref="home" name="home">
@@ -19,8 +17,11 @@
             <span class="clr-black">  Login </span>
         </md-nav-item>
     </md-nav-bar>
-    <div>
-        <img src="images/yeoman.png" class="header-image"/>
+    <div class="logo-holder">
+        <a ui-sref="home">
+            <img src="images/logo.png" class="header-image"/>
+        </a>
+        <h2 class="logo-title">Dzeki Chain</h2>
         <h1>{{pageTitle}}</h1>
     </div>
 </div>

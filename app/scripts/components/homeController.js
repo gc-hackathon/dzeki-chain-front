@@ -5,26 +5,33 @@
         .module('angularCore')
         .controller('homeController', homeController);
 
-    homeController.$inject = ['$scope', '$state'];
+    homeController.$inject = ['$scope', '$state', 'dogService'];
 
-    function homeController($scope, $state) {
+    function homeController($scope, $state, dogService) {
 
         $scope.onClickCard = onClickCard;
 
-        let str = [
-            {image: "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2017/12/dog_eating_chocolate.jpg?itok=2NBmt_8Y&fc=50,50"},
-            {image: "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2017/12/dog_eating_chocolate.jpg?itok=2NBmt_8Y&fc=50,50"}
-        ];
+        // let str = [
+        //     {image: "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2017/12/dog_eating_chocolate.jpg?itok=2NBmt_8Y&fc=50,50"},
+        //     {image: "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2017/12/dog_eating_chocolate.jpg?itok=2NBmt_8Y&fc=50,50"},
+        //     {image: "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2017/12/dog_eating_chocolate.jpg?itok=2NBmt_8Y&fc=50,50"},
+        //     {image: "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2017/12/dog_eating_chocolate.jpg?itok=2NBmt_8Y&fc=50,50"},
+        //     {image: "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2017/12/dog_eating_chocolate.jpg?itok=2NBmt_8Y&fc=50,50"},
+        //     {image: "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2017/12/dog_eating_chocolate.jpg?itok=2NBmt_8Y&fc=50,50"}
+        // ];
 
         init();
 
         function init() {
-            let newStr = str.map(s => {
-                s.image = makeThumbnail(s.image);
-                s.id = Math.random();
-                return s;
-            })
-            $scope.model = newStr;
+            // let newStr = str.map(s => {
+            //     s.image = makeThumbnail(s.image);
+            //     s.id = Math.random();
+            //     return s;
+            // })
+            dogService.getAll((response) => {
+                $scope.model = response.data;
+            }, () => {});
+
         }
 
         function makeThumbnail(str) {
@@ -33,7 +40,7 @@
         }
 
         function onClickCard(thumb) {
-            $state.go("detail", {"id": thumb.id});
+            $state.go("dogDetail", {"id": thumb.id});
         }
     }
 

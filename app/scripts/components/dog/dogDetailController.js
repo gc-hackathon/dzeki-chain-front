@@ -3,11 +3,11 @@
 
     angular
         .module('angularCore')
-        .controller('detailController', detailController);
+        .controller('DogDetailController', DogDetailController);
 
-    detailController.$inject = ['$scope','$state'];
+    DogDetailController.$inject = ['$scope','$state'];
 
-    function detailController($scope,$state) {
+    function DogDetailController($scope,$state) {
         let str = {
             image: "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2017/12/dog_eating_chocolate.jpg?itok=2NBmt_8Y&fc=50,50" 
         }
