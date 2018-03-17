@@ -26,7 +26,9 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <h1>LANDING PAGE</h1>
+    <div ng-include="'scripts/components/layout/header.html'"></div>
+
+    <ui-view></ui-view>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -47,9 +49,9 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/app.config.js"></script>
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/app.config.js"></script>
 
 </body>
 </html>
