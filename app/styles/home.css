@@ -5,7 +5,8 @@
 }
 
 .c-image-border {
-    border: 1px solid black;
+    border: 1px solid #66ccff;
+    box-shadow: #66ccff;
 }
 
 .font-b {
@@ -34,15 +35,26 @@
 }
 
 /* COLOR */
-
+.c-icon-padding {
+    padding: 5px;
+}
 .clr-black {
     color: black;
 }
 
+/* MARGIN */
+.c-image__margin {
+    margin-top: 50px;
+    margin-left: 50px;
+    
+}
+.c-image__margin-right {
+    margin-right: 50px;
+}
 /* HEADER */
 
 .header {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #66ccff;
 }
 
 /* STYLE */

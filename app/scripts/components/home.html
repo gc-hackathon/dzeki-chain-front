@@ -1,8 +1,7 @@
 <div layout="row" layout-align="space-beetwen"  layout-wrap>
     <div flex="33" class="c-image-padding" ng-repeat="thumb in model track by $index" >
-        <md-card class="c-background c-image-border c-thumbnail">
-            <div class="c-thumbnail__img " ng-style="{{thumb}}">
-                
+        <md-card class="c-background c-image-border c-thumbnail" ng-click="onClickCard(thumb)">
+            <div class="c-thumbnail__img " ng-style="{{thumb.image}}">
             </div>
             <md-card-actions class="clr-main" layout="row" layout-align="start center">
                     <div flex="75" class="font-b">Dalmatia</div>
@@ -11,9 +10,7 @@
                             <md-icon md-svg-icon="images/icons/dog-paw.svg"></md-icon>
                         </md-button>
                         <span class="font-b"></span>
-                    </div>
-                
-                
+                    </div>  
             </md-card-actions>
         </md-card>
     </div>

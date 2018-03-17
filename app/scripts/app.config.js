@@ -18,6 +18,11 @@
                     .state('about', {
                         url: '/about',
                         templateUrl: '/scripts/components/about.html'
+                    })
+                    .state('detail', {
+                        url: '/detail/:id',
+                        templateUrl: '/scripts/components/detail.html',
+                        controller: 'detailController'
                     });
             }
         ]);
