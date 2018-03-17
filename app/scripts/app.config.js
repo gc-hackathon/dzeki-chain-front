@@ -17,8 +17,13 @@
                     })
                     .state('about', {
                         url: '/about',
-                        templateUrl: '/scripts/components/about.html',
-                        pageTitle: 'About'
+                        templateUrl: '/scripts/components/about.html'
+                    })
+                    .state('detail', {
+                        url: '/detail/:id',
+                        templateUrl: '/scripts/components/detail.html',
+                        controller: 'detailController',
+                        pageTitle: 'Dog\'s Details'
                     })
                     .state('login', {
                         url: '/login',
