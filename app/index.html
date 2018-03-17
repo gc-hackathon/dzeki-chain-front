@@ -1,8 +1,8 @@
 <!doctype html>
-<html>
+<html ng-app="angularCore" ng-controller="AppController">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title ng-bind="browserPageTitle"></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
     <link rel="stylesheet" href="bower_components/angular-ui-tree/dist/angular-ui-tree.css" />
     <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css" />
+    <link rel="stylesheet" href="bower_components/angularjs-toaster/toaster.css" />
     <link rel="stylesheet" href="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" />
     <!-- endbower -->
     <!-- endbuild -->
@@ -21,16 +22,18 @@
     <link rel="stylesheet" href="styles/home.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="angularCore" layout="column" class="c-background">
+  <body layout="column" class="c-background">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
       
     <!-- Add your site or application content here -->
     <div ng-include="'scripts/components/layout/header.html'" ></div>
-  
+
+    <md-content class="page-content">
       <ui-view></ui-view>
-    
+    </md-content>
+
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -44,6 +47,7 @@
     <script src="bower_components/angular-material/angular-material.js"></script>
     <script src="bower_components/angular-ui-tree/dist/angular-ui-tree.js"></script>
     <script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+    <script src="bower_components/angularjs-toaster/toaster.js"></script>
     <script src="bower_components/jquery-mousewheel/jquery.mousewheel.js"></script>
     <script src="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js"></script>
     <script src="bower_components/ng-scrollbars/dist/scrollbars.min.js"></script>

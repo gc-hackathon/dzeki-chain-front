@@ -19,13 +19,13 @@
                  return makeThumbnail(s.image);
             })
             $scope.model = newStr;
-        
+
         }
-    
+
         function  makeThumbnail( str ) {
             let url = "{ 'background': 'url(" + str +  ") no-repeat center center local','background-size' : 'cover'}"
             return url;
         }
-    } 
+    }
 
     }) ();

@@ -1,20 +1,26 @@
 <!-- Header -->
 <div class="header">
-<md-nav-bar
-        md-no-ink-bar="disableInkBar"
-        md-selected-nav-item="currentNavItem"
-        nav-bar-aria-label="navigation links"
-        >
+    <md-nav-bar
+            md-no-ink-bar="disableInkBar"
+            md-selected-nav-item="currentNavItem"
+            nav-bar-aria-label="navigation links">
 
-    <img src="images/yeoman.png" class="header-logo"/>
+        <img src="images/icons/dog-paw.svg" class="header-logo"/>
 
-    <md-truncate flex></md-truncate>
+        <md-truncate flex></md-truncate>
 
-    <md-nav-item  md-nav-sref="home" name="home">
-        <span class="clr-black">Home</span>
-    </md-nav-item>
-    <md-nav-item  md-nav-sref="about" name="about">
-      <span class="clr-black">  About </span>
-    </md-nav-item>
-</md-nav-bar>
+        <md-nav-item md-nav-sref="home" name="home">
+            <span class="clr-black">Home</span>
+        </md-nav-item>
+        <md-nav-item md-nav-sref="about" name="about">
+            <span class="clr-black">  About </span>
+        </md-nav-item>
+        <md-nav-item md-nav-sref="login" name="login">
+            <span class="clr-black">  Login </span>
+        </md-nav-item>
+    </md-nav-bar>
+    <div>
+        <img src="images/yeoman.png" class="header-image"/>
+        <h1>{{pageTitle}}</h1>
+    </div>
 </div>

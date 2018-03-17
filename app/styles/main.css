@@ -1,5 +1,45 @@
-c-bck-image 
+body {
+    background-color: #f6f5de;
+}
+
+md-content {
+    background-color: #f6f5de;
+}
+
+.header {
+    height: 200px;
+    background-color: #e4efff;
+}
+
+.header .md-nav-bar {
+
+}
+
+.header h1 {
+    line-height: 124px;
+    text-align: center;
+    font-size: 28px;
+}
 
 .header-logo {
-    height: 48px;
+    margin: 8px;
+    height: 32px;
+}
+
+.header-image {
+    height: 124px;
+    float: left;
+    position: absolute;
+}
+
+.page-content {
+    padding: 20px 40px;
+}
+
+.login-form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px gray;
+    margin: 0 auto;
 }

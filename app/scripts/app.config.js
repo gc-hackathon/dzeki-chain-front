@@ -12,12 +12,18 @@
                     .state('home', {
                         url: '/home',
                         templateUrl: '/scripts/components/home.html',
-                        controller: 'homeController'
-
+                        controller: 'homeController',
+                        pageTitle: 'Home'
                     })
                     .state('about', {
                         url: '/about',
-                        templateUrl: '/scripts/components/about.html'
+                        templateUrl: '/scripts/components/about.html',
+                        pageTitle: 'About'
+                    })
+                    .state('login', {
+                        url: '/login',
+                        templateUrl: '/scripts/components/login/login.html',
+                        pageTitle: 'Login'
                     });
             }
         ]);
