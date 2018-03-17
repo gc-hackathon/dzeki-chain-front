@@ -1,0 +1,59 @@
+
+
+.c-image-padding {
+    padding: 35px;
+}
+
+.c-image-border {
+    border: 1px solid black;
+}
+
+.font-b {
+    font-weight: bold;
+}
+
+.font-i {
+    font-weight: italic;
+}
+
+.c-bck-image {
+ background : url("https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2017/12/dog_eating_chocolate.jpg?itok=2NBmt_8Y&fc=50,50") no-repeat center center local;
+ background-size : cover;
+ 
+}
+
+.c-bck-image1 {
+ background : url("http://s4.mojalbum.com/nove-slike-foto_1944114_1969249_4344145.jpg") no-repeat center center local;
+ background-size : cover;
+}
+
+/* BACKGROUND */
+
+.c-background {
+    background-color: #f6f5de;
+}
+
+/* COLOR */
+
+.clr-black {
+    color: black;
+}
+
+/* HEADER */
+
+.header {
+    border-bottom: 1px solid black;
+}
+
+/* STYLE */
+.c-thumbnail {
+  font-size: 14px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.c-thumbnail__img {
+height: 22em;
+width: 100%;
+overflow: hidden;
+}
