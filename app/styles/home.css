@@ -111,3 +111,42 @@ md-card-actions .rent {
     position: relative;
     top: 10px;
 }
+.team-icon-size {
+    width: 200px;
+    height: 100px;
+}
+.team-icon {
+    border-radius: 49%;
+    margin-left: auto;
+	margin-right: auto;
+    	display: block;
+
+}
+.oki {
+    width: 45%;
+    height: 50%;
+}
+.exs {
+    width: 50%;
+    height: 50%;
+}
+.milan {
+    width: 50%;
+}
+
+.bata {
+    width: 55%;
+    height: 65%;
+}
+
+.dzeki {
+    width: 50%;
+    height: 50%; 
+}
+.team-text {
+    text-align: center;
+}
+
+.team-padding {
+    padding-top: 100px;
+}

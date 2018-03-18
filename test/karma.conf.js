@@ -32,9 +32,11 @@ module.exports = function(config) {
       'bower_components/angular-ui-tree/dist/angular-ui-tree.js',
       'bower_components/angular-material-icons/angular-material-icons.min.js',
       'bower_components/angularjs-toaster/toaster.js',
+      'bower_components/angular-material-data-table/dist/md-data-table.js',
       'bower_components/jquery-mousewheel/jquery.mousewheel.js',
       'bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js',
       'bower_components/ng-scrollbars/dist/scrollbars.min.js',
+      'bower_components/angularjs-slider/dist/rzslider.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
