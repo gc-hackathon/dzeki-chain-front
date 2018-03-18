@@ -52,7 +52,12 @@
                 templateUrl: '/scripts/components/login/login.html',
                 controller: 'LoginController',
                 pageTitle: 'Login'
+            })
+            .state('transaction', {
+                url: '/transaction/:id',
+                templateUrl: '/scripts/components/breedingHouse/myTransaction.html',
+                controller: 'MyTransactionController',
+                pageTitle: 'Transaction'
             });
-    }
-
+        }
 })();

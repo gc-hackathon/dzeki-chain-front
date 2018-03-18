@@ -15,13 +15,26 @@
             add: add,
             edit: edit,
             getByOwner: getByOwner,
-            getBreeds: getBreeds
+            getBreeds: getBreeds,
+            getTransaction: getTransaction
         };
 
         function getAll(onSuccess, onError) {
             const req = {
                 method: 'GET',
                 url: REST_END_POINT.concat('/Dog'),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            };
+            $http(req).then(onSuccess, onError);
+        }
+
+
+        function getTransaction(id, onSuccess, onError) {
+            const req = {
+                method: 'GET',
+                url: REST_END_POINT.concat('/transaction/') + id,
                 headers: {
                     'Content-Type': 'application/json'
                 }
