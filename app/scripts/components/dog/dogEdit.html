@@ -44,17 +44,34 @@
                 </div>
             </md-input-container>
 
-            <md-input-container>
-                <label>Price</label>
-                <input type="number"
-                       name="price"
-                       ng-model="dog.price"
-                       required>
-                <div ng-if="dogEditForm.price.$invalid && !dogEditForm.price.$pristine"
-                     ng-messages="dogEditForm.price.$error">
-                    <div ng-message="required">This is required.</div>
+            <div layout="row">
+                <div flex="50">
+                    <md-input-container style="width: 100%">
+                        <label>Buy Price</label>
+                        <input type="number"
+                               name="price"
+                               ng-model="dog.price"
+                               required>
+                        <div ng-if="dogEditForm.price.$invalid && !dogEditForm.price.$pristine"
+                             ng-messages="dogEditForm.price.$error">
+                            <div ng-message="required">This is required.</div>
+                        </div>
+                    </md-input-container>
                 </div>
-            </md-input-container>
+                <div flex="50">
+                    <md-input-container style="width: 100%">
+                        <label>Mate Price</label>
+                        <input type="number"
+                               name="matePrice"
+                               ng-model="dog.matePrice"
+                               required>
+                        <div ng-if="dogEditForm.matePrice.$invalid && !dogEditForm.matePrice.$pristine"
+                             ng-messages="dogEditForm.matePrice.$error">
+                            <div ng-message="required">This is required.</div>
+                        </div>
+                    </md-input-container>
+                </div>
+            </div>
 
             <md-input-container>
                 <label>Info</label>
@@ -68,6 +85,31 @@
                     <div ng-message="required">This is required.</div>
                 </div>
             </md-input-container>
+
+            <div layout="row">
+                <div flex="50">
+                    <md-input-container style="width: 100%">
+                        <label>Mother</label>
+                        <md-select name="mother"
+                                   ng-model="dog.mother">
+                            <md-option ng-repeat="parent in femaleDogs"
+                                       ng-value="'resource:org.acme.mynetwork.Dog#' + parent.dogId">{{parent.name}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div flex="50">
+                    <md-input-container style="width: 100%">
+                        <label>Father</label>
+                        <md-select name="father"
+                                   ng-model="dog.father">
+                            <md-option ng-repeat="parent in maleDogs"
+                                       ng-value="'resource:org.acme.mynetwork.Dog#' + parent.dogId">{{parent.name}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+            </div>
 
             <div layout="row">
                 <md-input-container>

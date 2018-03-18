@@ -23,6 +23,16 @@
         init();
 
         function init() {
+
+            dogService.getByOwner($rootScope.currentUserId,
+                (response) => {
+                    $scope.dogs = response.data;
+                    $scope.femaleDogs = $scope.dogs.filter(dog => dog.gender === 'female');
+                    $scope.maleDogs = $scope.dogs.filter(dog => dog.gender === 'male');
+                },
+                onError
+            );
+
             if (isEditMode) {
                 dogService.get($state.params.id,
                     (response) => {
@@ -42,7 +52,7 @@
 
             if (!isEditMode) {
                 $scope.dog.dogId = utils.guid();
-                $scope.dog.owner = 'resource:' + utils.breedingHouseClass + $rootScope.currentUserId;
+                $scope.dog.owner = 'resource:' + utils.breedingHouseClass + '#' + $rootScope.currentUserId;
                 dogService.add($scope.dog,
                     () => {
                         notificationService.success('Dog created!');

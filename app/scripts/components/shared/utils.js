@@ -9,8 +9,8 @@
 
     function utils() {
 
-        const breedingHouseClass = 'org.acme.mynetwork.BreedingHouse#';
-        const dogClass = 'org.acme.mynetwork.Dog#';
+        const breedingHouseClass = 'org.acme.mynetwork.BreedingHouse';
+        const dogClass = 'org.acme.mynetwork.Dog';
 
         return {
             breedingHouseClass: breedingHouseClass,

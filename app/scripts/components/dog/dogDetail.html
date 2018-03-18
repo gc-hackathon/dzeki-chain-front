@@ -24,12 +24,12 @@
             <div>{{dog.info}}</div>
         </md-card-content>
         <md-card-actions layout="row" layout-align="center center">
-            <md-button data-ng-click="rentDog(dog.id)" data-ng-if="dog.forSale" class="buy">Buy</md-button>
-            <md-button data-ng-click="buyDog(dog.id)" data-ng-if="dog.forMate" class="rent">Mate</md-button>
+            <md-button data-ng-click="buyDog(dog.id)" data-ng-if="dog.forSale" class="buy">Buy</md-button>
+            <md-button data-ng-click="mateDog(dog.id)" data-ng-if="dog.forMate" class="rent">Mate</md-button>
         </md-card-actions>
-        <md-card-content layout="row" layout-align="center center">
-            <p class="price-label" data-ng-if="dog.price"> Buy Price: {{dog.price}}$ </p>
-            <p class="price-label" data-ng-if="dog.matePrice"> Mate Price {{dog.matePrice}}$ </p>
+        <md-card-content layout="column" layout-align="center center">
+            <div class="price-label" data-ng-if="dog.price"> Buy Price: {{dog.price}}$ </div>
+            <div class="price-label" data-ng-if="dog.matePrice"> Mate Price {{dog.matePrice}}$ </div>
         </md-card-content>
     </md-card>
 

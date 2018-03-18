@@ -16,25 +16,13 @@
             edit: edit,
             getByOwner: getByOwner,
             getBreeds: getBreeds,
-            getTransaction: getTransaction
+            buyDog: buyDog
         };
 
         function getAll(onSuccess, onError) {
             const req = {
                 method: 'GET',
                 url: REST_END_POINT.concat('/Dog'),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            };
-            $http(req).then(onSuccess, onError);
-        }
-
-
-        function getTransaction(id, onSuccess, onError) {
-            const req = {
-                method: 'GET',
-                url: REST_END_POINT.concat('/transaction/') + id,
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -95,6 +83,10 @@
                 'Haski',
                 'Zlatni Retriver'
             ];
+        }
+
+        function buyDog(element, onSuccess, onError) {
+            $http.post(REST_END_POINT.concat('/BuyDog/'), element).then(onSuccess, onError);
         }
     }
 

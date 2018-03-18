@@ -8,6 +8,8 @@
                 <th md-column>Price</th>
                 <th md-column>Gender</th>
                 <th md-column>For Sale</th>
+                <th md-column>Mother</th>
+                <th md-column>Father</th>
             </tr>
             </thead>
             <tbody md-body>
@@ -18,12 +20,14 @@
                 <td md-cell>{{dog.price}}</td>
                 <td md-cell>{{dog.gender}}</td>
                 <td md-cell>{{dog.forSale}}</td>
+                <td md-cell>{{mappedDogs[dog.mother].name}}</td>
+                <td md-cell>{{mappedDogs[dog.father].name}}</td>
             </tr>
             </tbody>
         </table>
     </md-table-container>
     <div>
-        <md-button data-ng-click="newDog()">New Dog</md-button>
-        <md-button data-ng-show="selectedRows.length > 0" data-ng-click="editDog()">Edit Dog</md-button>
+        <md-button class="md-raised md-primary" data-ng-click="newDog()">New Dog</md-button>
+        <md-button class="md-raised md-primary" data-ng-show="selectedRows.length > 0" data-ng-click="editDog()">Edit Dog</md-button>
     </div>
 </div>

@@ -90,7 +90,7 @@
         }
 
         function filterIfNeeded() {
-            const ownerId = 'resource:' + utils.breedingHouseClass + $rootScope.currentUserId;
+            const ownerId = 'resource:' + utils.breedingHouseClass + '#' + $rootScope.currentUserId;
             if($rootScope.currentUserId !== null) {
                 $scope.model = $scope.model.filter(dog => dog.owner !== ownerId);
             }
