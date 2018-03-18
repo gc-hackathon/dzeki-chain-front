@@ -20,7 +20,7 @@
             //api 
              $scope.model = {}
              let request = $state.params.id;
-             dogService.get(request,(response) => {
+             dogService.get(request, (response) => {
                  $scope.model = response.data;
              }, () => { });
 

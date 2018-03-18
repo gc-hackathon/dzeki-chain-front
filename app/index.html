@@ -27,10 +27,11 @@
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-      
-    <!-- Add your site or application content here -->
+
+    <!-- Header -->
     <div ng-include="'scripts/components/layout/header.html'" ></div>
 
+    <!-- Content -->
     <md-content class="page-content">
       <ui-view></ui-view>
     </md-content>
@@ -78,6 +79,8 @@
 
     <script src="scripts/components/homeController.js"></script>
     <script src="scripts/components/dog/dogDetailController.js"></script>
+    <script src="scripts/components/dog/dogEditController.js"></script>
+    <script src="scripts/components/breedingHouse/myDogsController.js"></script>
 
 </body>
 </html>

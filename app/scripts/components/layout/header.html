@@ -1,5 +1,5 @@
-<!-- Header -->
 <div class="header">
+
     <md-nav-bar
             md-no-ink-bar="disableInkBar"
             md-selected-nav-item="currentNavItem"
@@ -8,15 +8,19 @@
         <md-truncate flex></md-truncate>
 
         <md-nav-item md-nav-sref="home" name="home">
-            <span class="clr-black">Home</span>
+            <span>Home</span>
+        </md-nav-item>
+        <md-nav-item md-nav-sref="myDogs" name="myDogs">
+            <span>My Dogs</span>
         </md-nav-item>
         <md-nav-item md-nav-sref="about" name="about">
-            <span class="clr-black">  About </span>
+            <span>  About </span>
         </md-nav-item>
         <md-nav-item md-nav-sref="login" name="login">
-            <span class="clr-black">  Login </span>
+            <span>  Login </span>
         </md-nav-item>
     </md-nav-bar>
+
     <div class="logo-holder">
         <a ui-sref="home">
             <img src="images/logo.png" class="header-image"/>

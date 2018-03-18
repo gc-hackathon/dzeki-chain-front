@@ -85,7 +85,7 @@ md-content {
     padding: 40px 80px;
 }
 
-.login-form {
+md-content form {
     background-color: white;
     padding: 30px;
     border-radius: 4px;

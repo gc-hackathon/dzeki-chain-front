@@ -1,14 +1,18 @@
 <div class="filter-dogs">
-
+    <md-input-container>
+        <label>Name</label>
+        <input ng-model="filters.dogsName" />
+    </md-input-container>
+    <md-button data-ng-click="findDogs()">Find</md-button>
 </div>
 
 <div layout="row" layout-align="space-beetwen" layout-wrap>
-    <div flex="25" class="dog-thumbnail-wrapper " ng-repeat="thumb in model track by $index">
-        <md-card class="c-background dog-thumbnail" ng-click="onClickCard(thumb)">
-            <div class="c-thumbnail__img " ng-style="{{thumb.image}}">
+    <div flex="25" class="dog-thumbnail-wrapper " ng-repeat="dog in model track by $index">
+        <md-card class="c-background dog-thumbnail" ng-click="viewDog(dog.dogId)">
+            <div class="c-thumbnail__img " ng-style="{{dog.image}}">
             </div>
             <md-card-actions class="clr-main" layout="row" layout-align="start center">
-                <div flex="75" class="font-b">{{thumb.name}}</div>
+                <div flex="75" class="font-b">{{dog.name}}</div>
                 <div flex="25">
                     <md-button class="md-icon-button" aria-label="Favorite">
                         <md-icon md-svg-icon="images/icons/dog-paw.svg"></md-icon>

@@ -9,7 +9,17 @@
 
     function homeController($scope, $state, dogService) {
 
-        $scope.onClickCard = onClickCard;
+        // TODO OKI
+        $scope.filters = {
+            dogsName: "",
+            price: {
+                min: '',
+                max: ''
+            }
+        };
+
+        $scope.viewDog = viewDog;
+        $scope.findDogs = findDogs;
 
         // let str = [
         //     {image: "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2017/12/dog_eating_chocolate.jpg?itok=2NBmt_8Y&fc=50,50"},
@@ -39,8 +49,34 @@
             return url;
         }
 
-        function onClickCard(thumb) {
-            $state.go("dogDetail", {"id": thumb.id});
+        function viewDog(dogId) {
+            $state.go("dogDetail", {"id": dogId});
+        }
+
+        // TODO OKI
+        function findDogs() {
+
+            const filter = {
+                    "where": {
+                        "or": [
+                            {
+                                "name": $scope.filters.dogsName
+                            },
+                            {
+                                "price": {
+                                    "between": [
+                                        0,
+                                        0
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                };
+
+            dogService.getFiltered(filter, (response) => {
+                $scope.model = response.data;
+            }, onError);
         }
 
         function onError() {

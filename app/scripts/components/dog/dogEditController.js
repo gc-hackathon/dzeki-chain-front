@@ -3,11 +3,11 @@
 
     angular
         .module('angularCore')
-        .controller('dogEditController', dogEditController);
+        .controller('DogEditController', DogEditController);
 
-    dogEditController.$inject = ['$scope', '$state'];
+    DogEditController.$inject = ['$scope', '$state'];
 
-    function dogEditController($scope, $state) {
+    function DogEditController($scope, $state) {
 
         $scope.goToDogs = goToDogs;
 

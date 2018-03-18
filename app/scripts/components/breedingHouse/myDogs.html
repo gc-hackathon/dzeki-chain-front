@@ -13,12 +13,15 @@
         <tr md-row md-select="dog" md-select-id="name" md-auto-select
             md-on-select="selectDog" md-on-deselect="deselectDog"
             ng-repeat="dog in dogs">
-            <td md-cell>{{project.name}}</td>
-            <td md-cell>{{project.breed}}</td>
-            <td md-cell>{{project.price}}</td>
-            <td md-cell>{{project.gender}}</td>
-            <td md-cell>{{project.forSale}}</td>
+            <td md-cell>{{dog.name}}</td>
+            <td md-cell>{{dog.breed}}</td>
+            <td md-cell>{{dog.price}}</td>
+            <td md-cell>{{dog.gender}}</td>
+            <td md-cell>{{dog.forSale}}</td>
         </tr>
         </tbody>
     </table>
 </md-table-container>
+<div>
+    <md-button data-ng-click="newDog()">New Dog</md-button>
+</div>

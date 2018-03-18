@@ -8,9 +8,30 @@
 
     function dogService($http, REST_END_POINT) {
 
+        // var query = {
+        //     "where": {
+        //         "or": [
+        //             {
+        //                 "name": "do1"
+        //             },
+        //             {
+        //                 "price": {
+        //                     "between": [
+        //                         10,
+        //                         100
+        //                     ]
+        //                 }
+        //             }
+        //         ]
+        //     }
+        // };
+
+        //filter=' + JSON.stringify(query)
+
         return {
             getAll: getAll,
             get: get,
+            getFiltered: getFiltered,
             add: add,
             edit: edit,
             getByOwner: getByOwner
@@ -31,6 +52,17 @@
             var req = {
                 method: 'GET',
                 url: REST_END_POINT.concat('/Dog/') + id,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            };
+            $http(req).then(onSuccess, onError);
+        }
+
+        function getFiltered(filter, onSuccess, onError) {
+            var req = {
+                method: 'GET',
+                url: REST_END_POINT.concat('/Dog?filter=' + JSON.stringify(filter)),
                 headers: {
                     'Content-Type': 'application/json'
                 }

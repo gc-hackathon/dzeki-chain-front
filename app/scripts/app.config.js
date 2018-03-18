@@ -9,14 +9,14 @@
 
     function appConfig($stateProvider, $urlRouterProvider, $httpProvider) {
 
-        $urlRouterProvider.otherwise('/home');
+        $urlRouterProvider.otherwise('/');
 
         $stateProvider
             .state('home', {
-                url: '/home',
+                url: '/',
                 templateUrl: '/scripts/components/home.html',
                 controller: 'homeController',
-                pageTitle: 'Home'
+                pageTitle: 'Find Your Dog'
             })
             .state('about', {
                 url: '/about',
@@ -25,21 +25,27 @@
             })
             .state('myDogs', {
                 url: '/my-dogs',
-                templateUrl: '/scripts/components/breedingHouse/breedingHouseDogs.html',
-                controller: 'BreedingHouseDogsController',
+                templateUrl: '/scripts/components/breedingHouse/myDogs.html',
+                controller: 'MyDogsController',
                 pageTitle: 'My Dogs'
             })
             .state('dogDetail', {
-                url: '/detail/:id',
+                url: '/dogs/view/:id',
                 templateUrl: '/scripts/components/dog/dogDetail.html',
                 controller: 'DogDetailController',
                 pageTitle: 'Dog\'s Details'
             })
             .state('dogNew', {
-                url: '/dog/new',
+                url: '/dogs/new',
                 templateUrl: '/scripts/components/dog/dogEdit.html',
-                controller: 'DogNewController',
+                controller: 'DogEditController',
                 pageTitle: 'New Dog'
+            })
+            .state('dogEdit', {
+                url: '/dogs/:id',
+                templateUrl: '/scripts/components/dog/dogEdit.html',
+                controller: 'DogEditController',
+                pageTitle: 'Edit Dog'
             })
             .state('login', {
                 url: '/login',
