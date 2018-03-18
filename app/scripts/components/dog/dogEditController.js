@@ -37,6 +37,8 @@
                 dogService.get($state.params.id,
                     (response) => {
                         $scope.dog = response.data;
+                        $scope.femaleDogs = $scope.femaleDogs.filter(function (el) { return el != $scope.dog });
+                        $scope.maleDogs = $scope.maleDogs.filter(function (el) { return el != $scope.dog });
                     },
                     onError
                 );
