@@ -53,7 +53,9 @@
                     <div>{{dog.gender}}</div>
                     <div>{{dog.price}}$</div>
                 </md-card-content>
-                <md-card-actions class="clr-main" layout="row" layout-align="start center">
+                <md-card-actions layout="row" layout-align="start center">
+                    <md-button data-ng-if="dog.forSale">Buy</md-button>
+                    <md-button data-ng-if="dog.forMate">Rent</md-button>
                     <!--<div>-->
                         <!--<md-button class="md-icon-button" aria-label="Favorite">-->
                             <!--<md-icon md-svg-icon="images/icons/dog-paw.svg"></md-icon>-->

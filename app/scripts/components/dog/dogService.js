@@ -14,7 +14,8 @@
             getFiltered: getFiltered,
             add: add,
             edit: edit,
-            getByOwner: getByOwner
+            getByOwner: getByOwner,
+            getBreeds: getBreeds
         };
 
         function getAll(onSuccess, onError) {
@@ -72,6 +73,15 @@
                 }
             };
             $http(req).then(onSuccess, onError);
+        }
+
+        function getBreeds() {
+            return [
+                'Labrador',
+                'Maltezer',
+                'Haski',
+                'Zlatni Retriver'
+            ];
         }
     }
 

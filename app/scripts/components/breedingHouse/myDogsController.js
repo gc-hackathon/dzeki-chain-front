@@ -19,7 +19,7 @@
 
         function init() {
 
-            dogService.getByOwner(1,
+            dogService.getByOwner('BH_1',
                 (response) => {
                     $scope.dogs = response.data;
                 },

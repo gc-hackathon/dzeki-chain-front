@@ -9,13 +9,7 @@
 
     function homeController($scope, $state, dogService) {
 
-        $scope.breeds = [
-            'Labrador',
-            'Maltezer',
-            'Haski',
-            'Zlatni Retriver',
-            'fdas'
-        ];
+        $scope.breeds = dogService.getBreeds();
 
         $scope.filters = {
             name: '',
@@ -32,7 +26,7 @@
             options: {
                 floor: 0,
                 ceil: 10000,
-                onChange: findDogs
+                onEnd: findDogs
             },
         };
 
@@ -58,6 +52,11 @@
             // })
             dogService.getAll((response) => {
                 $scope.model = response.data;
+                $scope.model.forEach((dog) => {
+                    if(dog.photoUrl) {
+                        dog.image = makeThumbnail(dog.photoUrl);
+                    }
+                })
             }, onError);
 
         }
@@ -73,6 +72,7 @@
 
         function findDogs() {
 
+            // TODO
             const filter = {
                 "where": {
                     "and": [

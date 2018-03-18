@@ -11,8 +11,12 @@
 
         const isEditMode = angular.isDefined($state.params.id);
 
+        $scope.breeds = dogService.getBreeds();
+
         $scope.submitForm = submitForm;
         $scope.goToDogs = goToDogs;
+
+        $scope.uploadImage = uploadImage;
 
         init();
 
@@ -24,26 +28,32 @@
                     },
                     onError
                 );
+            } else {
+                $scope.dog = {
+                    forSale: false,
+                    forMate: false
+                };
             }
         }
 
         function submitForm(form) {
-            // uploadImage();
+
             if (!isEditMode) {
                 $scope.dog.dogId = utils.guid();
-                $scope.dog.owner = 'resource:org.acme.mynetwork.BreedingHouse#1';
+                $scope.dog.owner = 'resource:org.acme.mynetwork.BreedingHouse#BH_1';
                 dogService.add($scope.dog,
                     () => {
-                        notificationService.success('Dog successfully created!');
-                        form.$setPristine();
+                        notificationService.success('Dog created!');
                         $scope.dog = {};
+                        form.$setPristine();
+                        form.$setUntouched();
                     },
                     onError
                 );
             } else {
                 dogService.edit($scope.dog,
                     () => {
-                        notificationService.success('Dog successfully updated!');
+                        notificationService.success('Dog updated!');
                         form.$setPristine();
                     },
                     onError
@@ -60,9 +70,8 @@
             };
             const task = ref.child(name).put(file, metadata);
             task.then((snapshot) => {
-                const url = snapshot.downloadURL;
-                console.log(url);
-                // document.querySelector('#someImageTagID').src = url;
+                $scope.dog.photoUrl = snapshot.downloadURL;
+                notificationService.success('Image uploaded!');
             }).catch((error) => {
                 console.error(error);
             });
