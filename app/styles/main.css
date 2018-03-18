@@ -31,6 +31,8 @@ md-content {
     height: 140px;
     background-color: #f6f5de;
     box-shadow: 0 4px 2px -2px gray;
+    position: relative;
+    z-index: 10;
 }
 
 .header .md-nav-bar {
@@ -85,7 +87,7 @@ md-content {
     padding: 40px 80px;
 }
 
-md-content form {
+.content {
     background-color: white;
     padding: 30px;
     border-radius: 4px;

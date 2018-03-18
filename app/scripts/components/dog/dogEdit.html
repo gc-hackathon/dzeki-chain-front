@@ -1,74 +1,92 @@
-<form ng-cloak name="dogEditForm" ng-submit="confirm(dogEditForm)" flex="40">
+<div class="content" flex="40">
 
-    <div layout="column">
+    <form ng-cloak name="dogEditForm" ng-submit="submitForm(dogEditForm)">
 
-        <md-input-container>
-            <label>Name</label>
-            <input type="text"
-                   name="name"
-                   ng-model="dog.name"
-                   md-maxlength="30"
-                   required>
-            <div ng-if="dogEditForm.name.$invalid && !dogEditForm.name.$pristine"
-                 ng-messages="dogEditForm.name.$error">
-                <div ng-message="required">This is required.</div>
-                <div ng-message="md-maxlength">Must be less than 30 characters long.</div>
-            </div>
-        </md-input-container>
+        <div layout="column">
 
-        <md-input-container>
-            <label>Breed</label>
-            <input type="text"
-                   name="alias"
-                   ng-model="dog.breed"
-                   md-maxlength="30"
-                   required>
-            <div ng-if="dogEditForm.breed.$invalid && !dogEditForm.breed.$pristine"
-                 ng-messages="dogEditForm.breed.$error">
-                <div ng-message="required">This is required.</div>
-                <div ng-message="md-maxlength">Must be less than 30 characters long.</div>
-            </div>
-        </md-input-container>
-
-        <md-input-container>
-            <label>Price</label>
-            <input type="number"
-                   name="alias"
-                   ng-model="dog.price"
-                   required>
-            <div ng-if="dogEditForm.price.$invalid && !dogEditForm.price.$pristine"
-                 ng-messages="dogEditForm.price.$error">
-                <div ng-message="required">This is required.</div>
-            </div>
-        </md-input-container>
-
-        <md-input-container>
-            <label>Gender</label>
-            <md-select name="gender"
-                       ng-model="dog.gender"
+            <md-input-container>
+                <label>Name</label>
+                <input type="text"
+                       name="name"
+                       ng-model="dog.name"
+                       md-maxlength="30"
                        required>
-                <md-option ng-value="'MALE'">Male</md-option>
-                <md-option ng-value="'FEMALE'">Female</md-option>
-            </md-select>
-            <div ng-messages="dogEditForm.gender.$error && !dogEditForm.gender.$pristine">
-                <div ng-message="required">This is required.</div>
-            </div>
-        </md-input-container>
+                <div ng-if="dogEditForm.name.$invalid && !dogEditForm.name.$pristine"
+                     ng-messages="dogEditForm.name.$error">
+                    <div ng-message="required">This is required.</div>
+                    <div ng-message="md-maxlength">Must be less than 30 characters long.</div>
+                </div>
+            </md-input-container>
 
-        <md-input-container>
-            <md-checkbox ng-model="dog.forSale">For Sale</md-checkbox>
-        </md-input-container>
+            <md-input-container>
+                <label>Breed</label>
+                <input type="text"
+                       name="breed"
+                       ng-model="dog.breed"
+                       md-maxlength="30"
+                       required>
+                <div ng-if="dogEditForm.breed.$invalid && !dogEditForm.breed.$pristine"
+                     ng-messages="dogEditForm.breed.$error">
+                    <div ng-message="required">This is required.</div>
+                    <div ng-message="md-maxlength">Must be less than 30 characters long.</div>
+                </div>
+            </md-input-container>
 
-    </div>
+            <md-input-container>
+                <label>Info</label>
+                <input type="text"
+                       name="info"
+                       ng-model="dog.info"
+                       required>
+                <div ng-if="dogEditForm.info.$invalid && !dogEditForm.info.$pristine"
+                     ng-messages="dogEditForm.info.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
 
-    <div layout="row">
-        <span flex></span>
-        <md-button type="submit" ng-disabled="dogEditForm.$invalid || dogEditForm.$pristine" md-autofocus>
-            Save
-        </md-button>
-        <md-button ng-click="goToDogs()">
-            Go to Dogs
-        </md-button>
-    </div>
+            <md-input-container>
+                <label>Price</label>
+                <input type="number"
+                       name="price"
+                       ng-model="dog.price"
+                       required>
+                <div ng-if="dogEditForm.price.$invalid && !dogEditForm.price.$pristine"
+                     ng-messages="dogEditForm.price.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
 
-</form>
+            <md-input-container>
+                <label>Gender</label>
+                <md-select name="gender"
+                           ng-model="dog.gender"
+                           required>
+                    <md-option ng-value="'MALE'">Male</md-option>
+                    <md-option ng-value="'FEMALE'">Female</md-option>
+                </md-select>
+                <div ng-messages="dogEditForm.gender.$error && !dogEditForm.gender.$pristine">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container>
+                <md-checkbox ng-model="dog.forSale">For Sale</md-checkbox>
+            </md-input-container>
+
+            <input type="file" class="form-control" id="photo" placeholder="Image">
+
+        </div>
+
+        <div layout="row">
+            <span flex></span>
+            <md-button type="submit" ng-disabled="dogEditForm.$invalid || dogEditForm.$pristine" md-autofocus>
+                Save
+            </md-button>
+            <md-button ng-click="goToDogs()">
+                Cancel
+            </md-button>
+        </div>
+
+    </form>
+
+</div>

@@ -10,26 +10,21 @@
     function MyDogsController($scope, $state, dogService) {
 
         $scope.selectedRows = [];
+        $scope.dogs = [];
 
         $scope.newDog = newDog;
         $scope.editDog = editDog;
-
-        $scope.selectDog = selectDog;
-        $scope.deselectDog = deselectDog;
-
-        $scope.dogs = [];
 
         init();
 
         function init() {
 
-            // dogService.getByOwner(1,
-            //     (response) => {
-            //         $scope.dogs = response.data;
-            //     },
-            //     onError
-            // );
-            $scope.dogs = dogService.getByOwner(1, null, null);
+            dogService.getByOwner(1,
+                (response) => {
+                    $scope.dogs = response.data;
+                },
+                onError
+            );
         }
 
         function newDog() {
@@ -37,15 +32,7 @@
         }
 
         function editDog() {
-
-        }
-
-        function selectDog() {
-
-        }
-
-        function deselectDog() {
-
+            $state.go('dogEdit', { 'id': $scope.selectedRows[0].dogId });
         }
 
         function onError() {

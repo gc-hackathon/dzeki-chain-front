@@ -9,13 +9,31 @@
 
     function homeController($scope, $state, dogService) {
 
-        // TODO OKI
+        $scope.breeds = [
+            'Labrador',
+            'Maltezer',
+            'Haski',
+            'Zlatni Retriver',
+            'fdas'
+        ];
+
         $scope.filters = {
-            dogsName: "",
+            name: '',
+            breed: '',
+            forSale: '',
+            gender: '',
             price: {
-                min: '',
-                max: ''
+                min: 0,
+                max: 10000
             }
+        };
+
+        $scope.slider = {
+            options: {
+                floor: 0,
+                ceil: 10000,
+                onChange: findDogs
+            },
         };
 
         $scope.viewDog = viewDog;
@@ -53,26 +71,38 @@
             $state.go("dogDetail", {"id": dogId});
         }
 
-        // TODO OKI
         function findDogs() {
 
             const filter = {
-                    "where": {
-                        "or": [
-                            {
-                                "name": $scope.filters.dogsName
-                            },
-                            {
-                                "price": {
-                                    "between": [
-                                        0,
-                                        0
-                                    ]
-                                }
+                "where": {
+                    "and": [
+                        {
+                            "or": [
+                                {
+                                    "name": $scope.filters.name
+                                },
+                                {
+                                    "breed": $scope.filters.breed
+                                },
+                                {
+                                    "forSale": $scope.filters.forSale
+                                },
+                                {
+                                    "gender": ($scope.filters.gender === 'ALL') ? '' : $scope.filters.gender
+                                },
+                            ]
+                        },
+                        {
+                            "price": {
+                                "between": [
+                                    $scope.filters.price.min,
+                                    $scope.filters.price.max,
+                                ]
                             }
-                        ]
-                    }
-                };
+                        }
+                    ]
+                }
+            };
 
             dogService.getFiltered(filter, (response) => {
                 $scope.model = response.data;

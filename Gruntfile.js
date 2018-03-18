@@ -392,6 +392,16 @@
                         cwd: 'bower_components/bootstrap/dist',
                         src: 'fonts/*',
                         dest: '<%= yeoman.dist %>'
+                    }, {
+                        expand: true,
+                        cwd: '<%= yeoman %>',
+                        dest: '<%= yeoman.dist %>',
+                        src: [
+                            '../firebase.json',
+                            '../firestore.indexes.json',
+                            '../firestore.rules',
+                            '../.firebaserc'
+                        ]
                     }]
                 },
                 styles: {

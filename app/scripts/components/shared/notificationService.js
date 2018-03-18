@@ -2,16 +2,16 @@
     'use strict';
 
     angular
-        .module('angularCore.shared')
+        .module('angularCore')
         .factory('notificationService', notificationService);
 
     notificationService.$inject = ['toaster'];
 
     function notificationService(toaster) {
 
-        var TYPE_SUCCESS = 'success';
-        var TYPE_INFO = 'info';
-        var TYPE_ERROR = 'error';
+        const TYPE_SUCCESS = 'success';
+        const TYPE_INFO = 'info';
+        const TYPE_ERROR = 'error';
 
         return {
             TYPE_ERROR: TYPE_ERROR,

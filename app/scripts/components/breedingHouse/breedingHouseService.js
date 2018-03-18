@@ -42,7 +42,7 @@
         }
 
         function edit(element, onSuccess, onError) {
-            $http.put(REST_END_POINT.concat('/BreedingHouse/' + element.id), element).then(onSuccess, onError);
+            $http.put(REST_END_POINT.concat('/BreedingHouse/' + element.breedingHouseId), element).then(onSuccess, onError);
         }
     }
 

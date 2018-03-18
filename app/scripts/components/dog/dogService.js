@@ -8,26 +8,6 @@
 
     function dogService($http, REST_END_POINT) {
 
-        // var query = {
-        //     "where": {
-        //         "or": [
-        //             {
-        //                 "name": "do1"
-        //             },
-        //             {
-        //                 "price": {
-        //                     "between": [
-        //                         10,
-        //                         100
-        //                     ]
-        //                 }
-        //             }
-        //         ]
-        //     }
-        // };
-
-        //filter=' + JSON.stringify(query)
-
         return {
             getAll: getAll,
             get: get,
@@ -38,7 +18,7 @@
         };
 
         function getAll(onSuccess, onError) {
-            var req = {
+            const req = {
                 method: 'GET',
                 url: REST_END_POINT.concat('/Dog'),
                 headers: {
@@ -49,7 +29,7 @@
         }
 
         function get(id, onSuccess, onError) {
-            var req = {
+            const req = {
                 method: 'GET',
                 url: REST_END_POINT.concat('/Dog/') + id,
                 headers: {
@@ -60,9 +40,9 @@
         }
 
         function getFiltered(filter, onSuccess, onError) {
-            var req = {
+            const req = {
                 method: 'GET',
-                url: REST_END_POINT.concat('/Dog?filter=' + JSON.stringify(filter)),
+                url: REST_END_POINT.concat('/Dog?filter=' + encodeURIComponent(JSON.stringify(filter))),
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -75,15 +55,23 @@
         }
 
         function edit(element, onSuccess, onError) {
-            $http.put(REST_END_POINT.concat('/Dog/' + element.id), element).then(onSuccess, onError);
+            $http.put(REST_END_POINT.concat('/Dog/' + element.dogId), element).then(onSuccess, onError);
         }
 
         function getByOwner(id, onSuccess, onError) {
-            // MOCK DATA
-            return [
-                { name: 'dog 1 mock' },
-                { name: 'dog 2 mock' }
-            ]
+            const filter = {
+                "where": {
+                    "owner": "resource:org.acme.mynetwork.BreedingHouse#" + id
+                }
+            };
+            const req = {
+                method: 'GET',
+                url: REST_END_POINT.concat('/Dog?filter=' + encodeURIComponent(JSON.stringify(filter))),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            };
+            $http(req).then(onSuccess, onError);
         }
     }
 

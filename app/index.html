@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="bower_components/angularjs-toaster/toaster.css" />
     <link rel="stylesheet" href="bower_components/angular-material-data-table/dist/md-data-table.css" />
     <link rel="stylesheet" href="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css" />
+    <link rel="stylesheet" href="bower_components/angularjs-slider/dist/rzslider.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -28,6 +29,8 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <toaster-container toaster-options="toasterOptions"></toaster-container>
+
     <!-- Header -->
     <div ng-include="'scripts/components/layout/header.html'" ></div>
 
@@ -37,18 +40,7 @@
     </md-content>
 
     <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyDEUAcvKuwj_6OM3j-_MK_giCXukVfLbCw",
-            authDomain: "dzekichain.firebaseapp.com",
-            databaseURL: "https://dzekichain.firebaseio.com",
-            projectId: "dzekichain",
-            storageBucket: "dzekichain.appspot.com",
-            messagingSenderId: "223058140361"
-        };
-        firebase.initializeApp(config);
-    </script>
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase-firestore.js"></script>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -68,6 +60,7 @@
     <script src="bower_components/jquery-mousewheel/jquery.mousewheel.js"></script>
     <script src="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js"></script>
     <script src="bower_components/ng-scrollbars/dist/scrollbars.min.js"></script>
+    <script src="bower_components/angularjs-slider/dist/rzslider.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -77,10 +70,14 @@
     <script src="scripts/components/dog/dogService.js"></script>
     <script src="scripts/components/breedingHouse/breedingHouseService.js"></script>
 
-    <script src="scripts/components/homeController.js"></script>
     <script src="scripts/components/dog/dogDetailController.js"></script>
     <script src="scripts/components/dog/dogEditController.js"></script>
     <script src="scripts/components/breedingHouse/myDogsController.js"></script>
+    <script src="scripts/components/breedingHouse/breedingHouseService.js"></script>
+    <script src="scripts/components/shared/notificationService.js"></script>
+    <script src="scripts/components/shared/utils.js"></script>
+    <script src="scripts/components/homeController.js"></script>
 
-</body>
+
+  </body>
 </html>

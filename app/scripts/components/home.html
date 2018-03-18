@@ -1,25 +1,68 @@
-<div class="filter-dogs">
-    <md-input-container>
-        <label>Name</label>
-        <input ng-model="filters.dogsName" />
-    </md-input-container>
-    <md-button data-ng-click="findDogs()">Find</md-button>
+<div class="filter-dogs" layout="row">
+
+    <div flex="25" layout="column">
+        <md-input-container>
+            <label>Breed</label>
+            <md-select ng-model="filters.breed" ng-change="findDogs()">
+                <md-option ng-repeat="breed in breeds" ng-value="breed">{{breed}}</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+
+    <div flex="25" layout="column">
+        <md-input-container>
+            <label>Is for Sale</label>
+            <md-select ng-model="filters.forSale" ng-change="findDogs()">
+                <md-option ng-value="''">Both</md-option>
+                <md-option ng-value="true">For Sale</md-option>
+                <md-option ng-value="false">Not For Sale</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+
+    <div flex="25" layout="column">
+        <md-input-container>
+            <label>Gender</label>
+            <md-select ng-model="filters.gender" ng-change="findDogs()">
+                <md-option ng-value="'ALL'">Both</md-option>
+                <md-option ng-value="'MALE'">Male</md-option>
+                <md-option ng-value="'FEMALE'">Female</md-option>
+            </md-select>
+        </md-input-container>
+    </div>
+
+    <div flex="25" layout="column" class="price-slider">
+        <rzslider
+                rz-slider-model="filters.price.min"
+                rz-slider-high="filters.price.max"
+                rz-slider-options="slider.options"></rzslider>
+    </div>
+
 </div>
 
-<div layout="row" layout-align="space-beetwen" layout-wrap>
-    <div flex="25" class="dog-thumbnail-wrapper " ng-repeat="dog in model track by $index">
-        <md-card class="c-background dog-thumbnail" ng-click="viewDog(dog.dogId)">
-            <div class="c-thumbnail__img " ng-style="{{dog.image}}">
-            </div>
-            <md-card-actions class="clr-main" layout="row" layout-align="start center">
-                <div flex="75" class="font-b">{{dog.name}}</div>
-                <div flex="25">
-                    <md-button class="md-icon-button" aria-label="Favorite">
-                        <md-icon md-svg-icon="images/icons/dog-paw.svg"></md-icon>
-                    </md-button>
-                    <span class="font-b"></span>
+<div>
+
+    <div layout="row" layout-align="space-beetwen" layout-wrap>
+        <div flex="25" class="dog-thumbnail-wrapper " ng-repeat="dog in model track by $index">
+            <md-card class="c-background dog-thumbnail" ng-click="viewDog(dog.dogId)">
+                <div class="c-thumbnail__img " ng-style="{{dog.image}}">
                 </div>
-            </md-card-actions>
-        </md-card>
+                <md-card-content layout="column" layout-align="center center">
+                    <div>{{dog.name}}</div>
+                    <div>{{dog.breed}}</div>
+                    <div>{{dog.gender}}</div>
+                    <div>{{dog.price}}$</div>
+                </md-card-content>
+                <md-card-actions class="clr-main" layout="row" layout-align="start center">
+                    <!--<div>-->
+                        <!--<md-button class="md-icon-button" aria-label="Favorite">-->
+                            <!--<md-icon md-svg-icon="images/icons/dog-paw.svg"></md-icon>-->
+                        <!--</md-button>-->
+                        <!--<span class="font-b"></span>-->
+                    <!--</div>-->
+                </md-card-actions>
+            </md-card>
+        </div>
     </div>
+
 </div>

@@ -1,28 +1,29 @@
-<form class="md-no-momentum"
-      name="loginForm"
-      ng-submit="submitLoginForm(loginForm)"
-      layout="column"
-      flex="40">
-    <md-input-container>
-        <label>Username</label>
-        <input name="username"
-               ng-model="loginData.username"
-               required>
-        <div ng-messages="loginForm.username.$error">
-            <div ng-message="required">This is required.</div>
+<div class="content" flex="40">
+    <form class="md-no-momentum"
+          name="loginForm"
+          ng-submit="submitLoginForm(loginForm)"
+          layout="column">
+        <md-input-container>
+            <label>Username</label>
+            <input name="username"
+                   ng-model="loginData.username"
+                   required>
+            <div ng-messages="loginForm.username.$error">
+                <div ng-message="required">This is required.</div>
+            </div>
+        </md-input-container>
+        <md-input-container>
+            <label>Password</label>
+            <input name="password"
+                   ng-model="loginData.password"
+                   type="password"
+                   required>
+            <div ng-messages="loginForm.password.$error">
+                <div ng-message="required">This is required.</div>
+            </div>
+        </md-input-container>
+        <div style="text-align: center">
+            <md-button type="submit">Login</md-button>
         </div>
-    </md-input-container>
-    <md-input-container>
-        <label>Password</label>
-        <input name="password"
-               ng-model="loginData.password"
-               type="password"
-               required>
-        <div ng-messages="loginForm.password.$error">
-            <div ng-message="required">This is required.</div>
-        </div>
-    </md-input-container>
-    <div style="text-align: center">
-        <md-button type="submit">Login</md-button>
-    </div>
-</form>
+    </form>
+</div>
