@@ -30,7 +30,7 @@
             // })
             dogService.getAll((response) => {
                 $scope.model = response.data;
-            }, () => {});
+            }, onError);
 
         }
 
@@ -41,6 +41,10 @@
 
         function onClickCard(thumb) {
             $state.go("dogDetail", {"id": thumb.id});
+        }
+
+        function onError() {
+            console.log('error');
         }
     }
 

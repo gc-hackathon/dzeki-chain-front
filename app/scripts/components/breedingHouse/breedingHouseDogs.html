@@ -1,0 +1,24 @@
+<md-table-container flex="60">
+    <table md-table md-row-select ng-model="selectedRows">
+        <thead md-head>
+        <tr md-row>
+            <th md-column>Name</th>
+            <th md-column>Breed</th>
+            <th md-column>Price</th>
+            <th md-column>Gender</th>
+            <th md-column>For Sale</th>
+        </tr>
+        </thead>
+        <tbody md-body>
+        <tr md-row md-select="dog" md-select-id="name" md-auto-select
+            md-on-select="selectDog" md-on-deselect="deselectDog"
+            ng-repeat="dog in dogs">
+            <td md-cell>{{project.name}}</td>
+            <td md-cell>{{project.breed}}</td>
+            <td md-cell>{{project.price}}</td>
+            <td md-cell>{{project.gender}}</td>
+            <td md-cell>{{project.forSale}}</td>
+        </tr>
+        </tbody>
+    </table>
+</md-table-container>

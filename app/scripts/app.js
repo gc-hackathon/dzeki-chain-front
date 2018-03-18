@@ -4,7 +4,7 @@
     angular
         .module('angularCore', [
             "ui.router", 'ui.grid', 'ui.grid.selection', 'ui.tree', 'ngMaterial', 'ngMdIcons', 'ngScrollbars',
-            'ngMessages', 'toaster']
+            'ngMessages', 'toaster', 'md.data.table']
         )
         .constant('REST_END_POINT', 'http://localhost:3000/api')
         .controller('AppController', AppController);

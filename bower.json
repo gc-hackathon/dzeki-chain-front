@@ -12,6 +12,7 @@
     "angular-ui-tree": "^2.22.5",
     "angular-material-icons": "^0.7.1",
     "angularjs-toaster": "latest",
+    "angular-material-data-table": "^0.10.10",
     "ng-scrollbars": "^0.0.11"
   },
   "devDependencies": {

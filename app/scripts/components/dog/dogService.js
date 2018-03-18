@@ -12,7 +12,8 @@
             getAll: getAll,
             get: get,
             add: add,
-            edit: edit
+            edit: edit,
+            getByOwner: getByOwner
         };
 
         function getAll(onSuccess, onError) {
@@ -43,6 +44,14 @@
 
         function edit(element, onSuccess, onError) {
             $http.put(REST_END_POINT.concat('/Dog/' + element.id), element).then(onSuccess, onError);
+        }
+
+        function getByOwner(id, onSuccess, onError) {
+            // MOCK DATA
+            return [
+                { name: 'dog 1 mock' },
+                { name: 'dog 2 mock' }
+            ]
         }
     }
 

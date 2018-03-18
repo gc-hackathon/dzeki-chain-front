@@ -23,6 +23,12 @@
                 templateUrl: '/scripts/components/about.html',
                 pageTitle: 'About'
             })
+            .state('myDogs', {
+                url: '/my-dogs',
+                templateUrl: '/scripts/components/breedingHouse/breedingHouseDogs.html',
+                controller: 'BreedingHouseDogsController',
+                pageTitle: 'My Dogs'
+            })
             .state('dogDetail', {
                 url: '/detail/:id',
                 templateUrl: '/scripts/components/dog/dogDetail.html',

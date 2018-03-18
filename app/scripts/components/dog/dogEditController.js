@@ -9,10 +9,16 @@
 
     function dogEditController($scope, $state) {
 
+        $scope.goToDogs = goToDogs;
+
         init();
 
         function init() {
 
+        }
+        
+        function goToDogs() {
+            $state.go('home');
         }
     }
 
