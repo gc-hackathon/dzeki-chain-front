@@ -10,7 +10,7 @@
                 <span class="md-subhead"></span>
             </md-card-header-text>
         </md-card-header>
-        <div class="c-thumbnail__img " ng-style="{{dog.image}}">
+        <div class="c-thumbnail__img" ng-style="{{dog.image}}">
         </div>
         <md-card-title>
             <md-card-title-text>
@@ -18,18 +18,18 @@
                 <span>{{dog.gender}}</span>
             </md-card-title-text>
         </md-card-title>
-        <md-card-content>
+        <md-card-content layout="column">
             <a class="dogs-parent-link" data-ng-if="dog.mother" data-ng-click="viewDog(dog.mother)">Mother</a>
             <a class="dogs-parent-link" data-ng-if="dog.father" data-ng-click="viewDog(dog.father)">Father</a>
             <div>{{dog.info}}</div>
         </md-card-content>
-        <md-card-actions layout="row" layout-align="start center">
+        <md-card-actions layout="row" layout-align="center center">
             <md-button data-ng-click="rentDog(dog.id)" data-ng-if="dog.forSale" class="buy">Buy</md-button>
-            <md-button data-ng-click="buyDog(dog.id)" data-ng-if="dog.forMate" class="rent">Rent</md-button>
+            <md-button data-ng-click="buyDog(dog.id)" data-ng-if="dog.forMate" class="rent">Mate</md-button>
         </md-card-actions>
-        <md-card-content>
+        <md-card-content layout="row" layout-align="center center">
             <p class="price-label" data-ng-if="dog.price"> Buy Price: {{dog.price}}$ </p>
-            <p class="price-label" data-ng-if="dog.matePrice"> Rent Price {{dog.matePrice}}$ </p>
+            <p class="price-label" data-ng-if="dog.matePrice"> Mate Price {{dog.matePrice}}$ </p>
         </md-card-content>
     </md-card>
 

@@ -51,11 +51,11 @@
                     <div>{{dog.breed}}</div>
                     <div>{{dog.gender}}</div>
                     <div data-ng-if="dog.price">Buy Price: {{dog.price}}$</div>
-                    <div data-ng-if="dog.matePrice">Rent Price {{dog.matePrice}}$</div>
+                    <div data-ng-if="dog.matePrice">Mate Price {{dog.matePrice}}$</div>
                 </md-card-content>
                 <md-card-actions layout="row" layout-align="center center" data-ng-show="currentUserId !== null">
                     <md-button data-ng-if="dog.forSale" class="buy">Buy</md-button>
-                    <md-button data-ng-if="dog.forMate" class="rent">Rent</md-button>
+                    <md-button data-ng-if="dog.forMate" class="rent">Mate</md-button>
                 </md-card-actions>
             </md-card>
         </div>
