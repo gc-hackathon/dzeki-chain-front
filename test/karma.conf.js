@@ -31,6 +31,7 @@ module.exports = function(config) {
       'bower_components/angular-material/angular-material.js',
       'bower_components/angular-ui-tree/dist/angular-ui-tree.js',
       'bower_components/angular-material-icons/angular-material-icons.min.js',
+      'bower_components/angularjs-toaster/toaster.js',
       'bower_components/jquery-mousewheel/jquery.mousewheel.js',
       'bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js',
       'bower_components/ng-scrollbars/dist/scrollbars.min.js',

@@ -5,27 +5,25 @@
         .module('angularCore')
         .controller('DogDetailController', DogDetailController);
 
-    DogDetailController.$inject = ['$scope','$state'];
+    DogDetailController.$inject = ['$scope','$state','dogService'];
 
-    function DogDetailController($scope,$state) {
+    function DogDetailController($scope,$state, dogService) {
         let str = {
             image: "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2017/12/dog_eating_chocolate.jpg?itok=2NBmt_8Y&fc=50,50" 
         }
 
+        $scope.onClickBuy = onClickBuy;
+
         init();
 
          function init() {
-        //     let newStr = str.map(s => {
+            //api 
+             $scope.model = {}
+             let request = $state.params.id;
+             dogService.get(request,(response) => {
+                 $scope.model = response.data;
+             }, () => { });
 
-        //         s.image = makeThumbnail(s.image);
-        //         s.id = $state.params.id;
-        //         return s;
-        //     })
-        //     $scope.model = newStr;
-        //     console.log($scope.model)
-            
-            // console.log(str[0].image)
-            $scope.model = {}
             $scope.model.image = makeThumbnail(str.image);
             console.log($scope.model);
         }
@@ -35,6 +33,9 @@
             return url;
         }
 
+        function onClickBuy(id) {
+            // API FOR BUY
+        }
 
     }
 

@@ -1,34 +1,44 @@
 <div layout>
+    <!-- “price”: 0,
+ “breed”: “string”,
+ “gender”: “string”,
+ “info”: “string”,
+ “forSale”: true,
+ “father”: {},
+ “mother”: {},
+ “owner”: {} -->
     <md-card flex="60" class="c-background c-image-border c-image__margin">
         <md-card-header>
             <md-card-avatar>
                 <img src="images/icons/dog-house.png" alt="dogs house"/>
             </md-card-avatar>
             <md-card-header-text>
-                <span class="md-title">Tom's dogs house</span>
-                <span class="md-subhead">London</span>
+                <span class="md-title">{{model.owner}}</span>
+                <span class="md-subhead"></span>
             </md-card-header-text>
         </md-card-header>
         <div class="c-thumbnail__img " ng-style="{{model.image}}">
         </div>
         <md-card-title>
             <md-card-title-text>
-                <span class="md-headline">Name</span>
-                <span class="md-subhead">Helth</span>
+                <span class="md-headline">{{model.breed}}  &nbsp;{{model.gender}}</span>
+                <span class="md-subhead">{{model.info}}</span>
             </md-card-title-text>
         </md-card-title>
         <md-card-actions layout="row" layout-align="start center">
-            <md-button>Mom</md-button>
-            <md-button>Father</md-button>
+            <md-button>Mother: {{model.mom}}</md-button>
+            <md-button>Father: {{model.father}}</md-button>
             <md-card-icon-actions>
                 <md-button class="md-icon-button" aria-label="toggle">
                     <md-icon md-svg-icon="md-toggle-arrow"></md-icon>
                 </md-button>
+                <md-button class="md-warn md-raised md-hue-2" data-ng-click="onClickBuy(model.id)"data-ng-if="model.forSale">Buy</md-button>
+
             </md-card-icon-actions>
         </md-card-actions>
         <md-card-content>
             <p>
-                PRICE
+                PRICE {{model.price}}
             </p>
         </md-card-content>
     </md-card>
