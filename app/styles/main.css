@@ -40,8 +40,12 @@ md-content {
     color: #fefefe;
 }
 
-.header .md-nav-bar li a span {
-    color: #fefefe;
+.header .md-nav-bar li a {
+    color: #fefefe !important;
+}
+
+.header .md-nav-bar li button {
+    color: #fefefe !important;
 }
 
 .header .logo-holder {
@@ -93,4 +97,14 @@ md-content {
     border-radius: 4px;
     box-shadow: 0 0 10px gray;
     margin: 0 auto;
+}
+
+.dogs-parent-link {
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.price-label {
+    font-size: 20px;
+    font-weight: 500;
 }

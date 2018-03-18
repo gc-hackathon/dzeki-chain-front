@@ -5,13 +5,15 @@
         .module('angularCore')
         .controller('DogEditController', DogEditController);
 
-    DogEditController.$inject = ['$scope', '$state', 'dogService', 'notificationService', 'utils'];
+    DogEditController.$inject = ['$scope', '$rootScope', '$state', 'dogService', 'notificationService', 'utils'];
 
-    function DogEditController($scope, $state, dogService, notificationService, utils) {
+    function DogEditController($scope, $rootScope, $state, dogService, notificationService, utils) {
 
         const isEditMode = angular.isDefined($state.params.id);
 
         $scope.breeds = dogService.getBreeds();
+
+        $scope.photoUploadMessage = null;
 
         $scope.submitForm = submitForm;
         $scope.goToDogs = goToDogs;
@@ -40,11 +42,14 @@
 
             if (!isEditMode) {
                 $scope.dog.dogId = utils.guid();
-                $scope.dog.owner = 'resource:org.acme.mynetwork.BreedingHouse#BH_1';
+                $scope.dog.owner = 'resource:' + utils.breedingHouseClass + $rootScope.currentUserId;
                 dogService.add($scope.dog,
                     () => {
                         notificationService.success('Dog created!');
-                        $scope.dog = {};
+                        $scope.dog = {
+                            forSale: false,
+                            forMate: false
+                        };
                         form.$setPristine();
                         form.$setUntouched();
                     },
@@ -71,7 +76,7 @@
             const task = ref.child(name).put(file, metadata);
             task.then((snapshot) => {
                 $scope.dog.photoUrl = snapshot.downloadURL;
-                notificationService.success('Image uploaded!');
+                $scope.photoUploadMessage = 'Image uploaded!'
             }).catch((error) => {
                 console.error(error);
             });

@@ -5,36 +5,55 @@
         .module('angularCore')
         .controller('DogDetailController', DogDetailController);
 
-    DogDetailController.$inject = ['$scope','$state','dogService'];
+    DogDetailController.$inject = ['$scope', '$state', 'dogService', 'breedingHouseService'];
 
-    function DogDetailController($scope,$state, dogService) {
-        let str = {
-            image: "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2017/12/dog_eating_chocolate.jpg?itok=2NBmt_8Y&fc=50,50" 
-        }
+    function DogDetailController($scope, $state, dogService, breedingHouseService) {
 
-        $scope.onClickBuy = onClickBuy;
+        $scope.dog = {};
+        $scope.breedingHouse = {};
+
+        $scope.viewDog = viewDog;
+
+        $scope.buyDog = buyDog;
+        $scope.rentDog = rentDog;
 
         init();
 
-         function init() {
-            //api 
-             $scope.model = {}
-             let request = $state.params.id;
-             dogService.get(request, (response) => {
-                 $scope.model = response.data;
-             }, () => { });
+        function init() {
 
-            $scope.model.image = makeThumbnail(str.image);
-            console.log($scope.model);
+            dogService.get($state.params.id,
+                (response) => {
+                    $scope.dog = response.data;
+                    if($scope.dog.photoUrl) {
+                        $scope.dog.image = "{ 'background': 'url(" + $scope.dog.photoUrl + ") no-repeat center center local', 'background-size' : 'cover'}";
+                    }
+                    const breedingHouseId = $scope.dog.owner.split('#')[1];
+                    breedingHouseService.get(breedingHouseId,
+                        (response) => {
+                            $scope.breedingHouse = response.data;
+                        },
+                        onError
+                    );
+                },
+                onError
+            );
+        }
+        
+        function viewDog(parentLink) {
+            const id = parentLink.split('#')[1];
+            $state.go('dogDetail', { 'id': id });
         }
 
-        function makeThumbnail(str) {
-            let url = "{ 'background': 'url(" + str + ") no-repeat center center local','background-size' : 'cover'}"
-            return url;
+        function buyDog(id) {
+
         }
 
-        function onClickBuy(id) {
-            // API FOR BUY
+        function rentDog(id) {
+
+        }
+
+        function onError(id) {
+            console.log('error');
         }
 
     }

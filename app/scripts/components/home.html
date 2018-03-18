@@ -41,27 +41,21 @@
 </div>
 
 <div>
-
     <div layout="row" layout-align="space-beetwen" layout-wrap>
-        <div flex="25" class="dog-thumbnail-wrapper " ng-repeat="dog in model track by $index">
+        <div flex="25" class="dog-thumbnail-wrapper" ng-repeat="dog in model track by $index">
             <md-card class="c-background dog-thumbnail" ng-click="viewDog(dog.dogId)">
-                <div class="c-thumbnail__img " ng-style="{{dog.image}}">
+                <div class="c-thumbnail__img" ng-style="{{dog.image}}">
                 </div>
                 <md-card-content layout="column" layout-align="center center">
                     <div>{{dog.name}}</div>
                     <div>{{dog.breed}}</div>
                     <div>{{dog.gender}}</div>
-                    <div>{{dog.price}}$</div>
+                    <div data-ng-if="dog.price">Buy Price: {{dog.price}}$</div>
+                    <div data-ng-if="dog.matePrice">Rent Price {{dog.matePrice}}$</div>
                 </md-card-content>
-                <md-card-actions layout="row" layout-align="start center">
-                    <md-button data-ng-if="dog.forSale">Buy</md-button>
-                    <md-button data-ng-if="dog.forMate">Rent</md-button>
-                    <!--<div>-->
-                        <!--<md-button class="md-icon-button" aria-label="Favorite">-->
-                            <!--<md-icon md-svg-icon="images/icons/dog-paw.svg"></md-icon>-->
-                        <!--</md-button>-->
-                        <!--<span class="font-b"></span>-->
-                    <!--</div>-->
+                <md-card-actions layout="row" layout-align="center center" data-ng-show="currentUserId !== null">
+                    <md-button data-ng-if="dog.forSale" class="buy">Buy</md-button>
+                    <md-button data-ng-if="dog.forMate" class="rent">Rent</md-button>
                 </md-card-actions>
             </md-card>
         </div>

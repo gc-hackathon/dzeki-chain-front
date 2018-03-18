@@ -5,9 +5,9 @@
         .module('angularCore')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$scope', '$state', 'Security', 'notificationService'];
+    LoginController.$inject = ['$scope', '$rootScope', '$state', 'notificationService', 'breedingHouseService'];
 
-    function LoginController($scope, $state, Security, notificationService) {
+    function LoginController($scope, $rootScope, $state, notificationService, breedingHouseService) {
 
         $scope.loginData = {};
 
@@ -15,16 +15,18 @@
 
         function submitLoginForm(form) {
 
-            Security.login($scope.loginData,
-                // success
-                function (data) {
+            breedingHouseService.get($scope.loginData.username,
+                (response) => {
+                    $rootScope.currentUserId = response.data.breedingHouseId;
+                    localStorage.setItem('currentUserId', $rootScope.currentUserId);
                     $state.go('home');
                 },
-                // error
-                function (data) {
-                    notificationService.error('Invalid username or password');
-                }
+                onError
             );
+        }
+
+        function onError() {
+            notificationService.error('Invalid username or password');
         }
     }
 })();

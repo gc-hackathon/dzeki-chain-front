@@ -8,17 +8,21 @@
         <md-truncate flex></md-truncate>
 
         <md-nav-item md-nav-sref="home" name="home">
-            <span>Home</span>
+            Home
         </md-nav-item>
-        <md-nav-item md-nav-sref="myDogs" name="myDogs">
-            <span>My Dogs</span>
+        <md-nav-item md-nav-sref="myDogs" name="myDogs" data-ng-show="currentUserId !== null">
+            My Dogs
         </md-nav-item>
         <md-nav-item md-nav-sref="about" name="about">
-            <span>  About </span>
+            About
         </md-nav-item>
-        <md-nav-item md-nav-sref="login" name="login">
-            <span>  Login </span>
+        <md-nav-item md-nav-sref="login" name="login" data-ng-show="currentUserId === null">
+            Login
         </md-nav-item>
+        <md-nav-item md-nav-click="logout()" name="logout" data-ng-show="currentUserId !== null">
+            Logout
+        </md-nav-item>
+
     </md-nav-bar>
 
     <div class="logo-holder">

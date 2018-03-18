@@ -21,6 +21,15 @@
 
 .dog-thumbnail md-card-actions {
     height: 36px;
+    padding: 8px;
+}
+
+md-card-actions .buy {
+    background-color: #8fe391;
+}
+
+md-card-actions .rent {
+    background-color: #7aa3ff;
 }
 
 .c-image-border {

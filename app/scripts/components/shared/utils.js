@@ -9,7 +9,12 @@
 
     function utils() {
 
+        const breedingHouseClass = 'org.acme.mynetwork.BreedingHouse#';
+        const dogClass = 'org.acme.mynetwork.Dog#';
+
         return {
+            breedingHouseClass: breedingHouseClass,
+            dogClass: dogClass,
             guid: guid
         };
 

@@ -50,6 +50,7 @@
             .state('login', {
                 url: '/login',
                 templateUrl: '/scripts/components/login/login.html',
+                controller: 'LoginController',
                 pageTitle: 'Login'
             });
     }

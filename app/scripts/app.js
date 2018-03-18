@@ -9,9 +9,17 @@
         .constant('REST_END_POINT', 'http://localhost:3000/api')
         .controller('AppController', AppController);
 
-    AppController.$inject = ['$scope', '$rootScope'];
+    AppController.$inject = ['$scope', '$state', '$rootScope'];
 
-    function AppController($scope, $rootScope) {
+    function AppController($scope, $state, $rootScope) {
+
+        $rootScope.currentUserId = localStorage.getItem('currentUserId');
+
+        $rootScope.logout = () => {
+            $rootScope.currentUserId = null;
+            localStorage.removeItem('currentUserId');
+            $state.go('home');
+        };
 
         $rootScope.toasterOptions = {
             'debug': false,
@@ -37,7 +45,6 @@
             messagingSenderId: "223058140361"
         };
         firebase.initializeApp(config);
-
     }
 
 })();

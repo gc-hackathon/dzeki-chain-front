@@ -16,14 +16,15 @@
             <label>Password</label>
             <input name="password"
                    ng-model="loginData.password"
-                   type="password"
-                   required>
+                   type="password">
             <div ng-messages="loginForm.password.$error">
                 <div ng-message="required">This is required.</div>
             </div>
         </md-input-container>
         <div style="text-align: center">
-            <md-button type="submit">Login</md-button>
+            <md-button class="md-raised md-primary" type="submit" data-ng-disabled="loginForm.$invalid">
+                Login
+            </md-button>
         </div>
     </form>
 </div>

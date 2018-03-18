@@ -5,9 +5,9 @@
         .module('angularCore')
         .controller('homeController', homeController);
 
-    homeController.$inject = ['$scope', '$state', 'dogService'];
+    homeController.$inject = ['$scope', '$rootScope', '$state', 'dogService', 'utils'];
 
-    function homeController($scope, $state, dogService) {
+    function homeController($scope, $rootScope, $state, dogService, utils) {
 
         $scope.breeds = dogService.getBreeds();
 
@@ -33,37 +33,16 @@
         $scope.viewDog = viewDog;
         $scope.findDogs = findDogs;
 
-        // let str = [
-        //     {image: "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2017/12/dog_eating_chocolate.jpg?itok=2NBmt_8Y&fc=50,50"},
-        //     {image: "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2017/12/dog_eating_chocolate.jpg?itok=2NBmt_8Y&fc=50,50"},
-        //     {image: "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2017/12/dog_eating_chocolate.jpg?itok=2NBmt_8Y&fc=50,50"},
-        //     {image: "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2017/12/dog_eating_chocolate.jpg?itok=2NBmt_8Y&fc=50,50"},
-        //     {image: "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2017/12/dog_eating_chocolate.jpg?itok=2NBmt_8Y&fc=50,50"},
-        //     {image: "https://www.popsci.com/sites/popsci.com/files/styles/1000_1x_/public/images/2017/12/dog_eating_chocolate.jpg?itok=2NBmt_8Y&fc=50,50"}
-        // ];
-
         init();
 
         function init() {
-            // let newStr = str.map(s => {
-            //     s.image = makeThumbnail(s.image);
-            //     s.id = Math.random();
-            //     return s;
-            // })
+
             dogService.getAll((response) => {
                 $scope.model = response.data;
-                $scope.model.forEach((dog) => {
-                    if(dog.photoUrl) {
-                        dog.image = makeThumbnail(dog.photoUrl);
-                    }
-                })
+                filterIfNeeded();
+                loadImages();
             }, onError);
 
-        }
-
-        function makeThumbnail(str) {
-            let url = "{ 'background': 'url(" + str + ") no-repeat center center local','background-size' : 'cover'}";
-            return url;
         }
 
         function viewDog(dogId) {
@@ -106,7 +85,23 @@
 
             dogService.getFiltered(filter, (response) => {
                 $scope.model = response.data;
+                filterIfNeeded();
             }, onError);
+        }
+
+        function filterIfNeeded() {
+            const ownerId = 'resource:' + utils.breedingHouseClass + $rootScope.currentUserId;
+            if($rootScope.currentUserId !== null) {
+                $scope.model = $scope.model.filter(dog => dog.owner !== ownerId);
+            }
+        }
+
+        function loadImages() {
+            $scope.model.forEach((dog) => {
+                if(dog.photoUrl) {
+                    dog.image = "{ 'background': 'url(" + dog.photoUrl + ") no-repeat center center local', 'background-size' : 'cover'}";
+                }
+            })
         }
 
         function onError() {

@@ -1,56 +1,53 @@
-<div>
-    <md-card flex="60" class="c-background c-image-border c-image__margin">
+<div class="content" flex="80" layout="row">
+
+    <md-card flex="60">
         <md-card-header>
             <md-card-avatar>
                 <img src="images/icons/dog-house.png" alt="dogs house"/>
             </md-card-avatar>
             <md-card-header-text>
-                <span class="md-title">{{model.owner}}</span>
+                <span class="md-title">{{breedingHouse.name}}</span>
                 <span class="md-subhead"></span>
             </md-card-header-text>
         </md-card-header>
-        <div class="c-thumbnail__img " ng-style="{{model.image}}">
+        <div class="c-thumbnail__img " ng-style="{{dog.image}}">
         </div>
         <md-card-title>
             <md-card-title-text>
-                <span class="md-headline">{{model.breed}}</span>
-                <span>{{model.gender}}</span>
-                <div class="md-subhead">{{model.info}}</div>
+                <span class="md-headline">{{dog.breed}}</span>
+                <span>{{dog.gender}}</span>
             </md-card-title-text>
         </md-card-title>
+        <md-card-content>
+            <a class="dogs-parent-link" data-ng-if="dog.mother" data-ng-click="viewDog(dog.mother)">Mother</a>
+            <a class="dogs-parent-link" data-ng-if="dog.father" data-ng-click="viewDog(dog.father)">Father</a>
+            <div>{{dog.info}}</div>
+        </md-card-content>
         <md-card-actions layout="row" layout-align="start center">
-            <md-button>Mother: {{model.mom}}</md-button>
-            <md-button>Father: {{model.father}}</md-button>
-            <md-card-icon-actions>
-                <md-button class="md-icon-button" aria-label="toggle">
-                    <md-icon md-svg-icon="md-toggle-arrow"></md-icon>
-                </md-button>
-                <md-button class="md-warn md-raised md-hue-2" data-ng-click="onClickBuy(model.id)"data-ng-if="model.forSale">Buy</md-button>
-
-            </md-card-icon-actions>
+            <md-button data-ng-click="rentDog(dog.id)" data-ng-if="dog.forSale" class="buy">Buy</md-button>
+            <md-button data-ng-click="buyDog(dog.id)" data-ng-if="dog.forMate" class="rent">Rent</md-button>
         </md-card-actions>
         <md-card-content>
-            <p>
-                PRICE {{model.price}}
-            </p>
+            <p class="price-label" data-ng-if="dog.price"> Buy Price: {{dog.price}}$ </p>
+            <p class="price-label" data-ng-if="dog.matePrice"> Rent Price {{dog.matePrice}}$ </p>
         </md-card-content>
     </md-card>
-    <div flex-xs flex-gt-xs="40">
-        <md-card class="c-background c-image-border c-image__margin c-image__margin-right   " md-theme-watch>
+
+    <div flex="40">
+        <md-card md-theme-watch>
             <md-card-header>
                 <md-card-avatar>
                     <img src="images/icons/dog-house.png" alt="dogs house"/>
                 </md-card-avatar>
                 <md-card-header-text>
-                    <span class="md-headline">Tom's dogs house</span>
+                    <span class="md-headline">{{breedingHouse.name}}</span>
                 </md-card-header-text>
             </md-card-header>
             <md-card-title>
                 <md-card-title-text>
-                    <span class="md-subhead">Small</span>
-                    <span class="md-subhead">Small</span>
-                    <span class="md-subhead">Small</span>
-                    <span class="md-subhead">Small</span>
+                    <span class="md-subhead">{{breedingHouse.address}}</span>
+                    <span class="md-subhead">{{breedingHouse.phone}}</span>
+                    <span class="md-subhead">{{breedingHouse.email}}</span>
                 </md-card-title-text>
                 <md-card-title-media>
                     <div class="md-media-sm card-media"></div>
@@ -58,4 +55,5 @@
             </md-card-title>
         </md-card>
     </div>
+
 </div>
